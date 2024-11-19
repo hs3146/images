@@ -145,7 +145,6 @@ import { Progress } from "@/components/ui/progress"
 import { Switch } from "@/components/ui/switch"
 import { Download, Upload, RefreshCw, Trash2, ZoomIn, ZoomOut } from 'lucide-react'
 import JSZip from 'jszip';
-import { useParams } from 'next/navigation';
 
 type FileWithMeta = {
   file: File;
@@ -173,13 +172,13 @@ const workerCode = `
 const workerBlob = new Blob([workerCode], { type: 'application/javascript' });
 const workerUrl = URL.createObjectURL(workerBlob);
 
-export default function EnhancedMultiFileConversionForm() {
+export default function EnhancedMultiFileConversionForm({format}:{format:string}) {
   const [files, setFiles] = useState<FileWithMeta[]>([]);
-  const params = useParams();
+
   //Globeconst format = params.format;
   
   const [converting, setConverting] = useState(false);
-  const [globalFormat, setGlobalFormat] = useState<string>('image/png');
+  const [globalFormat, setGlobalFormat] = useState<string>(`image/${format}`);
   const [globalQuality, setGlobalQuality] = useState<number>(100);
   const [workers, setWorkers] = useState<Worker[]>([]);
   const [darkMode, setDarkMode] = useState(false);
@@ -191,26 +190,9 @@ export default function EnhancedMultiFileConversionForm() {
 
 
  
-  useEffect(() => {
-    
-    // Check for image types in params and set corresponding format
-    if (params['convert-to-jpg'] === 'true' || params['convert-to-jpeg'] === 'true') {
-      setGlobalFormat('image/jpeg');
-    } else if (params['convert-to-png'] === 'true') {
-      setGlobalFormat('image/png');
-    } else if (params['convert-to-gif'] === 'true') {
-      setGlobalFormat('image/gif');
-    } else if (params['convert-to-webp'] === 'true') {
-      setGlobalFormat('image/webp');
-    } else if (params['convert-to-bmp'] === 'true') {
-      setGlobalFormat('image/bmp');
-    } else if (params['convert-to-tiff'] === 'true') {
-      setGlobalFormat('image/tiff');
-    } else {
-      // Default to PNG if no valid image type is found
-      setGlobalFormat('image/png');
-    }
-  }, [params]);
+useEffect(()=>{
+  setGlobalFormat(`image/${format}`)
+},[format])
 
   useEffect(() => {
     const workerCount = navigator.hardwareConcurrency || 4;
