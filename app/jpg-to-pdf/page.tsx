@@ -1,4 +1,3 @@
-import ConversionForm from "@/components/ConversionForm"
 
 
 export const metadata = {
@@ -10,7 +9,7 @@ export default function JpgToPdf() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Convert jpeg-to-png</h1>
-      <ConversionForm  />
+
     </div>
   )
 }
