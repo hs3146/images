@@ -10,7 +10,7 @@ export default function JpgToPdf() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Convert jpeg-to-png</h1>
-      <ConversionForm conversionType="png-to-jpeg" />
+      <ConversionForm  />
     </div>
   )
 }

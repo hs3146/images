@@ -9,7 +9,7 @@ export default function PngToPdf() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Convert PNG to PDF</h1>
-      <ConversionForm conversionType="png-to-pdf" />
+      <ConversionForm  />
     </div>
   )
 }

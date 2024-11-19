@@ -33,7 +33,7 @@ export const metadata = {
           <li>Converting PNG to PDF</li>
         </ul>
         <p className="mb-4">
-          Our tool is designed to be fast, secure, and produce high-quality conversions. Whether you need to convert a single image or multiple files, we've got you covered.
+          Our tool is designed to be fast, secure, and produce high-quality conversions. Whether you need to convert a single image or multiple files, we&apos;ve got you covered.
         </p>
         <h2 className="text-2xl font-bold mb-2">Why Choose Our Converter?</h2>
         <ul className="list-disc list-inside mb-4">

@@ -176,7 +176,7 @@ const workerUrl = URL.createObjectURL(workerBlob);
 export default function EnhancedMultiFileConversionForm() {
   const [files, setFiles] = useState<FileWithMeta[]>([]);
   const params = useParams();
-  const format = params.format;
+  //Globeconst format = params.format;
   
   const [converting, setConverting] = useState(false);
   const [globalFormat, setGlobalFormat] = useState<string>('image/png');

@@ -9,7 +9,7 @@ export default function PdfToJpg() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Convert PDF to JPG</h1>
-      <ConversionForm conversionType="pdf-to-jpg" />
+      <ConversionForm />
     </div>
   )
 }
